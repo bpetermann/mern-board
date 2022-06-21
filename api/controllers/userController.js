@@ -1,4 +1,6 @@
-exports.registerUser = (req, res) => {
+const asyncHandler = require('express-async-handler');
+
+exports.registerUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !email.includes('@')) {
@@ -13,8 +15,8 @@ exports.registerUser = (req, res) => {
   }
 
   res.send('Register route');
-};
+});
 
-exports.loginUser = (req, res) => {
+exports.loginUser = asyncHandler(async (req, res) => {
   res.send('Login route');
-};
+});
