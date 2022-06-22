@@ -64,6 +64,10 @@ exports.loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+exports.getMe = asyncHandler(async (req, res) => {
+  res.send('me');
+});
+
 const generateToken = (id) => {
   return jwt.sign(
     {
