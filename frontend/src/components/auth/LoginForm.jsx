@@ -1,14 +1,16 @@
 import classes from './LoginForm.module.css';
 import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../../features/auth/authSlice';
 
-const LoginForm = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+const LoginForm = ({ email, password, setFormData }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { email, password } = formData;
+
+  const dispatch = useDispatch();
+  const { user, isLoading, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const onChangeHandler = (e) => {
     setFormData((prevState) => ({
@@ -19,7 +21,11 @@ const LoginForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
   };
 
   return (

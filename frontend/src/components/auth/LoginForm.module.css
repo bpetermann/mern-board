@@ -10,7 +10,8 @@
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 2;
-  border: 0.02rem solid #1a1a1a;
+  color: inherit;
+  border: 0.02rem solid #1f2937;
   transition: outline 0.2s ease-in-out;
   width: 100%;
   margin-bottom: 2rem;
@@ -19,7 +20,7 @@
 .form input:hover,
 .form input:focus,
 .form input:active {
-  outline: 0.08rem solid #1a1a1a;
+  outline: 0.08rem solid #1f2937;
 }
 
 .passwordInputDiv {
@@ -45,12 +46,12 @@
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: #1a1a1a;
+  background-color: #1f2937;
   color: #fff;
   border: none;
 }
 
-.signup-button:hover {
+.login-button:hover {
   background-color: #66676e;
 }
 

@@ -1,14 +1,10 @@
 import classes from './RegisterForm.module.css';
 import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux';
+import { register } from '../../features/auth/authSlice';
 
-const RegisterForm = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
-  const { email, password, confirmPassword } = formData;
+const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordValidation, setPasswordValidation] = useState({
     length: false,
@@ -16,23 +12,24 @@ const RegisterForm = () => {
     passwordTouched: false,
   });
   const [confirmPasswordTouched, setConfirmPasswordIsTouched] = useState(false);
-
   const { length, specialChars, passwordTouched } = passwordValidation;
 
-  const passwordIsValid = Object.values(passwordValidation).every(
-    (value) => value === true
-  );
-  const confirmPasswordIsValid = password === confirmPassword ? true : false;
-  const passwordIsInavlid = !passwordIsValid && passwordTouched;
-  const confirmPasswordIsInvalid =
-    !confirmPasswordIsValid && confirmPasswordTouched;
+  const dispatch = useDispatch();
 
-  const onSubmit = async (e) => {
+  const { user, isLoading, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!passwordIsValid || !confirmPasswordIsValid) {
       return;
     }
-    console.log(formData);
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(register(userData));
   };
 
   const onChangeHandler = (e) => {
@@ -41,6 +38,15 @@ const RegisterForm = () => {
       [e.target.id]: e.target.value,
     }));
   };
+
+  //Password Validation
+  const passwordIsValid = Object.values(passwordValidation).every(
+    (value) => value === true
+  );
+  const confirmPasswordIsValid = password === confirmPassword ? true : false;
+  const passwordIsInavlid = !passwordIsValid && passwordTouched;
+  const confirmPasswordIsInvalid =
+    !confirmPasswordIsValid && confirmPasswordTouched;
 
   // eslint-disable-next-line
   const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
@@ -60,7 +66,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <h2>I&apos;m new here</h2>
+      <h2>I&apos;m new here </h2>
       <form className={classes['form']} onSubmit={onSubmit}>
         <input
           type='email'
