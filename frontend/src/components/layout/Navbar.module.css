@@ -1,0 +1,35 @@
+.navbar {
+  overflow: hidden;
+  height: 5rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e8eaed;
+  padding: 0.5rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80rem;
+  width: 90%;
+  margin: 0 auto;
+  color: #1f2937;
+}
+
+.navbar-left {
+  display: flex;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: #000;
+  text-decoration: none;
+}
+.burger-button {
+  display: none;
+}
