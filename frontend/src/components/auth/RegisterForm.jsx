@@ -136,7 +136,7 @@ const RegisterForm = () => {
         )}
 
         <div className={classes['button-container']}>
-          <button className={classes['signup-button']}>Sign Up</button>
+          <button className={classes['signup-button']}>Register</button>
         </div>
       </form>
     </>

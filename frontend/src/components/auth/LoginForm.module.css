@@ -39,21 +39,7 @@
   justify-content: space-between;
 }
 
-.password-info {
-  margin-top: -1rem;
-}
-
-.invalid-message {
-  margin-top: -0.5rem;
-  color: #f87272;
-}
-
-.invalid {
-  outline: 0.1rem solid #f87272;
-  border-color: transparent;
-}
-
-.signup-button {
+.login-button {
   width: 100%;
   cursor: pointer;
   padding: 0.375rem 0.75rem;
