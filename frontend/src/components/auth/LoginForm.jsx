@@ -1,16 +1,32 @@
 import classes from './LoginForm.module.css';
-import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../../features/auth/authSlice';
+import { toast } from 'react-toastify';
+import { login, reset } from '../../features/auth/authSlice';
 
 const LoginForm = ({ email, password, setFormData }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
-  const { user, isLoading, isSuccess, message } = useSelector(
+  const navigate = useNavigate();
+
+  const { user, isSuccess, isError, message } = useSelector(
     (state) => state.auth
   );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onChangeHandler = (e) => {
     setFormData((prevState) => ({

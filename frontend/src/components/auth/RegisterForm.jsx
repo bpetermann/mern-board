@@ -1,8 +1,10 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classes from './RegisterForm.module.css';
-import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../../features/auth/authSlice';
+import { register, reset } from '../../features/auth/authSlice';
+import { toast } from 'react-toastify';
 
 const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,10 +17,23 @@ const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
   const { length, specialChars, passwordTouched } = passwordValidation;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const { user, isLoading, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onSubmit = (e) => {
     e.preventDefault();

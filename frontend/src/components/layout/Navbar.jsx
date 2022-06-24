@@ -1,8 +1,19 @@
 import styles from './Navbar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../../features/auth/authSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+  };
   return (
     <header>
       <div className={styles['navbar']}>
@@ -11,18 +22,29 @@ const Navbar = () => {
             <Link to='/'>
               <GiHamburgerMenu size={26} className={styles['burger-button']} />
             </Link>
-            <Link to='/'>
+            <Link to='/' className={styles['headline']}>
               <h2>Homepage</h2>
             </Link>
           </div>
           <div className={styles['navbar-right']}>
-            <Link to='/login'>
-              <h3>Login</h3>
-            </Link>
-
-            <Link to='/register'>
-              <h3>Register</h3>
-            </Link>
+            {user ? (
+              <button
+                to='/login'
+                onClick={onLogout}
+                className={styles['logout-button']}
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to='/login'>
+                  <h3>Login</h3>
+                </Link>
+                <Link to='/register'>
+                  <h3>Register</h3>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
