@@ -1,6 +1,5 @@
 .navbar {
   overflow: hidden;
-  height: 5rem;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid #e8eaed;
@@ -8,6 +7,7 @@
 }
 
 .container {
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,8 +26,19 @@
 }
 
 .navbar a {
-  color: #1f2937;
   text-decoration: none;
+}
+
+.navbar-link-item h3,
+.navbar-link-item h2 {
+  color: #1f2937;
+  padding: 0.5rem;
+}
+
+.navbar-link-item h3:hover,
+.navbar-link-item h2:hover {
+  background-color: #e5e6e6;
+  border-radius: 0.5rem;
 }
 
 .burger-button {

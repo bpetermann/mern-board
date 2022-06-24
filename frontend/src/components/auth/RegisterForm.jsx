@@ -5,6 +5,7 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { register, reset } from '../../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import Spinner from '../layout/Spinner';
 
 const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +20,7 @@ const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user, isError, isSuccess, message } = useSelector(
+  const { user, isError, isLoading, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
@@ -78,6 +79,10 @@ const RegisterForm = ({ email, password, confirmPassword, setFormData }) => {
     event.preventDefault();
     setConfirmPasswordIsTouched(true);
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>

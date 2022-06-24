@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import Spinner from '../layout/Spinner';
 import { login, reset } from '../../features/auth/authSlice';
 
 const LoginForm = ({ email, password, setFormData }) => {
@@ -12,7 +13,7 @@ const LoginForm = ({ email, password, setFormData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user, isSuccess, isError, message } = useSelector(
+  const { user, isSuccess, isLoading, isError, message } = useSelector(
     (state) => state.auth
   );
 
@@ -43,6 +44,10 @@ const LoginForm = ({ email, password, setFormData }) => {
     };
     dispatch(login(userData));
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>

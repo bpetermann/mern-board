@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to='/'>
               <GiHamburgerMenu size={26} className={styles['burger-button']} />
             </Link>
-            <Link to='/' className={styles['headline']}>
+            <Link to='/' className={styles['navbar-link-item']}>
               <h2>Homepage</h2>
             </Link>
           </div>
@@ -37,10 +37,10 @@ const Navbar = () => {
               </button>
             ) : (
               <>
-                <Link to='/login'>
+                <Link to='/login' className={styles['navbar-link-item']}>
                   <h3>Login</h3>
                 </Link>
-                <Link to='/register'>
+                <Link to='/register' className={styles['navbar-link-item']}>
                   <h3>Register</h3>
                 </Link>
               </>
