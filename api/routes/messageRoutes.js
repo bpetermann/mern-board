@@ -9,4 +9,10 @@ router
   .get(messageController.getMessages)
   .post(protect, messageController.createMessage);
 
+router
+  .route('/:id')
+  .get(protect, messageController.getMessage)
+  .delete(protect, messageController.deleteMessage)
+  .put(protect, messageController.updateMessage);
+
 module.exports = router;
