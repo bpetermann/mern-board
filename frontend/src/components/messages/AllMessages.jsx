@@ -48,8 +48,10 @@ const AllMessages = () => {
       {allMessages.map((message) => (
         <MessageItem
           key={message._id}
+          message={message}
           id={message._id}
           author={message.email}
+          authorId={message.user}
           content={message.messagePost}
           deletePost={deletePost}
         />

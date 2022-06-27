@@ -1,12 +1,14 @@
 import classes from './MessageItem.module.css';
 import { useSelector } from 'react-redux';
 
-const SingleMessage = ({ author, content, id, deletePost }) => {
+const SingleMessage = ({ author, content, id, deletePost, authorId }) => {
   const { user } = useSelector((state) => state.auth);
+
+  let currentUserPost = user != null ? user._id === authorId : false;
 
   return (
     <li className={classes['post']}>
-      {user && (
+      {currentUserPost && (
         <div className={classes['delete-button']}>
           <button onClick={() => deletePost(id)}>
             <span>X</span>
