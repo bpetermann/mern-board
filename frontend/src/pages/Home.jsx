@@ -1,8 +1,10 @@
+import CreateMessageLink from '../components/home/CreateMessageLink';
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+      <CreateMessageLink />
+    </>
   );
 };
 
