@@ -39,8 +39,6 @@ const AllMessages = () => {
     return <Spinner />;
   }
 
-  console.log(message);
-
   const deletePost = (id) => {
     dispatch(deleteMessage(id));
   };

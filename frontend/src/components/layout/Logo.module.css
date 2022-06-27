@@ -1,0 +1,13 @@
+.logo h2 {
+  padding: 0.5rem;
+  color: #1f2937;
+}
+
+.logo h2:hover {
+  background-color: #e5e6e6;
+  border-radius: 0.5rem;
+}
+
+.logo span {
+  color: #570df8;
+}

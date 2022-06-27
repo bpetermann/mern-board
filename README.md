@@ -1,12 +1,32 @@
 # Mern Board
 
-- Just learning MERN by making a small demo site
+- Just learning MERN by making a small message board
+- You can register to create a message
+- If you're the author you can also delete your messages
 
-### Tools
+### Set Environment Variables
 
-- [Node.js](https://nodejs.org/en/)
-- [ExpressJs](https://expressjs.com/de/)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
-- [MongoDB](https://www.mongodb.com/)
-- [MongooseJs](https://mongoosejs.com/)
-- [React](https://reactjs.org/)
+Rename the .envexample to .env and add your [MongoDB](https://www.mongodb.com/) database URI and your JWT secret
+
+### Install backend dependencies
+
+```bash
+npm install
+```
+
+### Install client dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### Run app in development (frontend & backend)
+
+```bash
+npm run dev
+```
+
+### Thanks
+
+- [Traversy Media](https://github.com/bradtraversy)

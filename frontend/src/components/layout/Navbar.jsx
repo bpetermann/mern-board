@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../../features/auth/authSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Logo from './Logo';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,9 +23,7 @@ const Navbar = () => {
             <Link to='/'>
               <GiHamburgerMenu size={26} className={styles['burger-button']} />
             </Link>
-            <Link to='/' className={styles['navbar-link-item']}>
-              <h2>Homepage</h2>
-            </Link>
+            <Logo />
           </div>
           <div className={styles['navbar-right']}>
             {user ? (
