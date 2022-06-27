@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const SingleMessage = ({ author, content, id, deletePost, authorId }) => {
   const { user } = useSelector((state) => state.auth);
 
-  let currentUserPost = user != null ? user._id === authorId : false;
+  const currentUserPost = user != null && user._id === authorId ? true : false;
 
   return (
     <li className={classes['post']}>

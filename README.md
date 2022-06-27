@@ -2,7 +2,7 @@
 
 - Just learning MERN by making a small message board
 - You can register to create a message
-- If you're the author you can also delete your messages
+- If you're the author you can also delete your message/s
 
 ### Set Environment Variables
 

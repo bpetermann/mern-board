@@ -5,7 +5,8 @@ const Logo = () => {
   return (
     <Link to='/' className={classes['logo']}>
       <h2>
-        <span>mern</span>Board
+        <span>mern</span>
+        Board
       </h2>
     </Link>
   );
