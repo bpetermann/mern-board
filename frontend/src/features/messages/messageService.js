@@ -14,8 +14,15 @@ const createMessage = async (messageData, token) => {
   return response.data;
 };
 
+const getAllMessages = async () => {
+  const response = await axios.get(API_URL);
+
+  return response.data;
+};
+
 const messageService = {
   createMessage,
+  getAllMessages,
 };
 
 export default messageService;

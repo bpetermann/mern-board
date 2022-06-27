@@ -11,6 +11,9 @@ const messageSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a message'],
     },
+    email: {
+      type: String
+    },
   },
   {
     timestamps: true,

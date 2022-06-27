@@ -26,15 +26,16 @@ const Navbar = () => {
               <h2>Homepage</h2>
             </Link>
           </div>
+          <div>
+            <Link to='/messages' className={styles['navbar-link-item']}>
+              <h2>Messages</h2>
+            </Link>
+          </div>
           <div className={styles['navbar-right']}>
             {user ? (
-              <button
-                to='/login'
-                onClick={onLogout}
-                className={styles['logout-button']}
-              >
-                Logout
-              </button>
+              <Link to='/login' className={styles['logout-button']}>
+                <h3 onClick={onLogout}>Logout</h3>
+              </Link>
             ) : (
               <>
                 <Link to='/login' className={styles['navbar-link-item']}>

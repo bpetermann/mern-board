@@ -7,9 +7,9 @@ import { createMessage, reset } from '../../features/messages/messageSlice';
 import Spinner from '../layout/Spinner';
 
 const MessageForm = () => {
-  // const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const [messagePost, setMessagePost] = useState('');
-  const { isLoading, isError, isSuccess, alert } = useSelector(
+  const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.message
   );
 
@@ -18,18 +18,18 @@ const MessageForm = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(alert);
+      toast.error(message);
     }
     if (isSuccess) {
       dispatch(reset());
       navigate('/');
     }
     dispatch(reset());
-  }, [dispatch, isError, isSuccess, navigate, alert]);
+  }, [dispatch, isError, isSuccess, navigate, message]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createMessage({ messagePost }));
+    dispatch(createMessage({ messagePost, email: user.email }));
   };
 
   if (isLoading) {
