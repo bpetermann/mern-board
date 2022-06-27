@@ -13,10 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res, next) => {
-  res.status(200).json({ message: 'Welcome!' });
-});
-
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/messages', require('./routes/messageRoutes'));
 
