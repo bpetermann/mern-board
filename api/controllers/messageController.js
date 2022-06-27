@@ -86,7 +86,7 @@ exports.updateMessage = asyncHandler(async (req, res) => {
 });
 
 exports.createMessage = asyncHandler(async (req, res) => {
-  const { message } = req.body;
+  const { messagePost } = req.body;
   const user = await User.findById(req.user.id);
 
   if (!user) {
@@ -96,7 +96,7 @@ exports.createMessage = asyncHandler(async (req, res) => {
 
   const newMessage = await Message.create({
     user: req.user.id,
-    message,
+    messagePost,
   });
 
   res.status(201).json(newMessage);

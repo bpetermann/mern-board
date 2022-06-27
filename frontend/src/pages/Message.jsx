@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageForm from '../components/message/MessageForm';
+import MessageForm from '../components/messages/MessageForm';
 
 const Message = () => {
   return (

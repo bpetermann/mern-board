@@ -7,7 +7,7 @@ const messageSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    message: {
+    messagePost: {
       type: String,
       required: [true, 'Please add a message'],
     },
