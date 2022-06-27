@@ -2,11 +2,16 @@ import classes from './AllMessages.module.css';
 import { useEffect } from 'react';
 import MessageItem from './MessageItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllMessages, reset } from '../../features/messages/messageSlice';
+import {
+  getAllMessages,
+  deleteMessage,
+  reset,
+} from '../../features/messages/messageSlice';
+import { toast } from 'react-toastify';
 import Spinner from '../layout/Spinner';
 
 const AllMessages = () => {
-  const { allMessages, isLoading, isSuccess } = useSelector(
+  const { allMessages, isLoading, isError, message } = useSelector(
     (state) => state.message
   );
 
@@ -15,24 +20,40 @@ const AllMessages = () => {
   useEffect(() => {
     dispatch(getAllMessages());
 
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (message === 'Message deleted') {
+      window.location.reload(false);
+    }
+
+    dispatch(reset());
+
     return () => {
-      if (isSuccess) {
-        dispatch(reset());
-      }
+      dispatch(reset());
     };
-  }, [dispatch, isSuccess]);
+  }, [dispatch, isError, message]);
 
   if (isLoading) {
     return <Spinner />;
   }
+
+  console.log(message);
+
+  const deletePost = (id) => {
+    dispatch(deleteMessage(id));
+  };
 
   return (
     <ul className={classes['container']}>
       {allMessages.map((message) => (
         <MessageItem
           key={message._id}
+          id={message._id}
           author={message.email}
           content={message.messagePost}
+          deletePost={deletePost}
         />
       ))}
     </ul>

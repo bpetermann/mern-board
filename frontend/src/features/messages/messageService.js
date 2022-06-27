@@ -14,6 +14,18 @@ const createMessage = async (messageData, token) => {
   return response.data;
 };
 
+const deleteMessage = async (messageId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(`${API_URL}/${messageId}`, config);
+
+  return response.data;
+};
+
 const getAllMessages = async () => {
   const response = await axios.get(API_URL);
 
@@ -23,6 +35,7 @@ const getAllMessages = async () => {
 const messageService = {
   createMessage,
   getAllMessages,
+  deleteMessage,
 };
 
 export default messageService;

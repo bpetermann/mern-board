@@ -48,7 +48,7 @@ exports.deleteMessage = asyncHandler(async (req, res) => {
 
   if (message.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('Not Authorizedd');
+    throw new Error('Not Authorized');
   }
 
   await message.remove();
@@ -58,13 +58,14 @@ exports.deleteMessage = asyncHandler(async (req, res) => {
 
 exports.updateMessage = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
+  const { messageId } = req.body;
 
   if (!user) {
     res.status(401);
     throw new Error('No User found');
   }
 
-  const message = await Message.findById(req.params.id);
+  const message = await Message.findById(messageId);
 
   if (!message) {
     res.status(404);
@@ -73,7 +74,7 @@ exports.updateMessage = asyncHandler(async (req, res) => {
 
   if (message.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error('Not Authorizedd');
+    throw new Error('Not Authorized');
   }
 
   const updatedMessage = await Message.findByIdAndUpdate(

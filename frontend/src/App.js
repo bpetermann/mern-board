@@ -6,7 +6,6 @@ import PrivateRoute from './components/shared/PrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Messages from './pages/Messages';
 import NewMessage from './pages/NewMessage';
 
 const App = () => {
@@ -19,7 +18,6 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/messages' element={<Messages />} />
             <Route path='/message' element={<PrivateRoute />}>
               <Route path='/message' element={<NewMessage />} />
             </Route>

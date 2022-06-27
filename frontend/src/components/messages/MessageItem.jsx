@@ -1,12 +1,20 @@
 import classes from './MessageItem.module.css';
+import { useSelector } from 'react-redux';
 
-import React from 'react';
+const SingleMessage = ({ author, content, id, deletePost }) => {
+  const { user } = useSelector((state) => state.auth);
 
-const SingleMessage = ({ author, content }) => {
   return (
     <li className={classes['post']}>
+      {user && (
+        <div className={classes['delete-button']}>
+          <button onClick={() => deletePost(id)}>
+            <span>X</span>
+          </button>
+        </div>
+      )}
       <div className={classes['author-email']}>
-        <p>{author}</p>
+        <p>Author: {author}</p>
       </div>
       <div>
         <h2>{content}</h2>

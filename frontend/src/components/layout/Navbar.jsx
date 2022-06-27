@@ -26,11 +26,6 @@ const Navbar = () => {
               <h2>Homepage</h2>
             </Link>
           </div>
-          <div>
-            <Link to='/messages' className={styles['navbar-link-item']}>
-              <h2>Messages</h2>
-            </Link>
-          </div>
           <div className={styles['navbar-right']}>
             {user ? (
               <Link to='/login' className={styles['logout-button']}>

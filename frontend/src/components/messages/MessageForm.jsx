@@ -20,7 +20,7 @@ const MessageForm = () => {
     if (isError) {
       toast.error(message);
     }
-    if (isSuccess) {
+    if (message === 'Message added') {
       dispatch(reset());
       navigate('/');
     }
