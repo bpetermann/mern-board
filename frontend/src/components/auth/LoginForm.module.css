@@ -11,7 +11,7 @@
   font-size: 1rem;
   line-height: 2;
   color: inherit;
-  border: 0.02rem solid #1f2937;
+  border: 0.02rem solid #333c4d;
   transition: outline 0.2s ease-in-out;
   width: 100%;
   margin-bottom: 2rem;
@@ -20,7 +20,7 @@
 .form input:hover,
 .form input:focus,
 .form input:active {
-  outline: 0.08rem solid #1f2937;
+  outline: 0.08rem solid #333c4d;
 }
 
 .passwordInputDiv {
@@ -32,7 +32,7 @@
   position: absolute;
   top: 10%;
   right: 2.5%;
-  color: #313131;
+  color: #333c4d;
 }
 
 .button-container {
@@ -46,7 +46,7 @@
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: #1f2937;
+  background-color: #333c4d;
   color: #fff;
   border: none;
 }

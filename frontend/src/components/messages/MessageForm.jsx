@@ -37,20 +37,23 @@ const MessageForm = () => {
   }
 
   return (
-    <form className={classes['form']} onSubmit={onSubmit}>
-      <textarea
-        placeholder='Your Message'
-        name='message'
-        id='message'
-        className={classes['message-input']}
-        value={messagePost}
-        onChange={(e) => setMessagePost(e.target.value)}
-        required
-      />
-      <div className={classes['button-container']}>
-        <button className={classes['submit-button']}>Add</button>
-      </div>
-    </form>
+    <>
+      <h2>I would like to say</h2>
+      <form className={classes['form']} onSubmit={onSubmit}>
+        <textarea
+          placeholder='Your Message'
+          name='message'
+          id='message'
+          className={classes['message-input']}
+          value={messagePost}
+          onChange={(e) => setMessagePost(e.target.value)}
+          required
+        />
+        <div className={classes['button-container']}>
+          <button className={classes['submit-button']}>Add</button>
+        </div>
+      </form>
+    </>
   );
 };
 

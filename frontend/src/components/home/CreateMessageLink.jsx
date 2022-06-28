@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CreateMessageLink = () => {
   return (
     <Link to='/message' className={classes['new-message-link']}>
-      Add Message
+      <h3>Add Message</h3>
     </Link>
   );
 };

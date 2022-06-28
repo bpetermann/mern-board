@@ -1,12 +1,15 @@
 .new-message-link {
   text-decoration: none;
+}
+
+.new-message-link h3 {
   color: white;
-  background-color: #1f2937;
+  background-color: #333c4d;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 2;
 }
 
-.new-message-link:hover {
+.new-message-link h3:hover {
   background-color: #66676e;
 }
