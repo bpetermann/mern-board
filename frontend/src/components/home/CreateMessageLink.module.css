@@ -1,6 +1,7 @@
 .new-message-link {
   text-decoration: none;
   width: 90%;
+  max-width: 25rem;
   text-align: center;
 }
 
