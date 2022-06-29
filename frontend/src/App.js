@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,12 @@ const App = () => {
   const modalToggleHandler = () => {
     setModal((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    modal
+      ? document.body.classList.add('no-scroll')
+      : document.body.classList.remove('no-scroll');
+  }, [modal]);
 
   return (
     <>

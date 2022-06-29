@@ -11,3 +11,8 @@ body {
   align-items: center;
   color: #333c4d;
 }
+
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}

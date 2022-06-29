@@ -19,3 +19,9 @@
     opacity: 0.25;
   }
 }
+
+@media (min-width: 40rem) {
+  .backdrop {
+    display: none;
+  }
+}

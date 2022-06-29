@@ -45,14 +45,12 @@
   text-decoration: none;
 }
 
-.navbar-link-item h3,
-.navbar-link-item h2 {
+.navbar-link-item h3 {
   color: #333c4d;
   padding: 0.5rem;
 }
 
-.navbar-link-item h3:hover,
-.navbar-link-item h2:hover {
+.navbar-link-item h3:hover {
   background-color: #e5e6e6;
   border-radius: 0.5rem;
 }
