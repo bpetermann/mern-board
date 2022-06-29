@@ -1,8 +1,10 @@
 # Mern Board
 
 - Just learning MERN by making a small message board
-- You can register to create a message
+- You can register to add a message
 - If you're the author you can also delete your message/s
+- You have to be registered to see who the author of a post is
+- [View Live Heroku](https://bensmernboard.herokuapp.com/)
 
 ### Set Environment Variables
 
