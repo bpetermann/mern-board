@@ -6,6 +6,8 @@ const SingleMessage = ({ author, content, id, deletePost, authorId }) => {
 
   const currentUserPost = user != null && user._id === authorId ? true : false;
 
+  const showAuthor = user ? author : 'Anonymous';
+
   return (
     <li className={classes['post']}>
       {currentUserPost && (
@@ -16,7 +18,7 @@ const SingleMessage = ({ author, content, id, deletePost, authorId }) => {
         </div>
       )}
       <div className={classes['author-email']}>
-        <p>Author: {author}</p>
+        <p>Author: {showAuthor}</p>
       </div>
       <div>
         <h2>{content}</h2>
