@@ -1,5 +1,7 @@
 .new-message-link {
   text-decoration: none;
+  width: 90%;
+  text-align: center;
 }
 
 .new-message-link h3 {

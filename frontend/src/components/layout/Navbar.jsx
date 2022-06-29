@@ -5,7 +5,7 @@ import { logout, reset } from '../../features/auth/authSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from './Logo';
 
-const Navbar = () => {
+const Navbar = ({ toggleModal }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -15,14 +15,15 @@ const Navbar = () => {
     dispatch(reset());
     navigate('/');
   };
+
   return (
     <header>
       <div className={styles['navbar']}>
         <div className={styles['container']}>
           <div className={styles['navbar-left']}>
-            <Link to='/'>
+            <button className={styles['mobile-navbar']} onClick={toggleModal}>
               <GiHamburgerMenu size={26} className={styles['burger-button']} />
-            </Link>
+            </button>
             <Logo />
           </div>
           <div className={styles['navbar-right']}>

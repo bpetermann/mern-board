@@ -1,0 +1,43 @@
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  right: 0%;
+  top: 5rem;
+  width: 50%;
+  z-index: 50;
+  height: 100vh;
+  background-color: #fff;
+  padding-top: 1.75rem;
+  animation: slide-in 400ms ease-out forwards;
+}
+
+.container a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #333c4d;
+  padding: 0.5rem;
+}
+
+.container h3:hover {
+  background-color: #e5e6e6;
+  border-radius: 0.5rem;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+}
