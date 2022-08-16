@@ -24,10 +24,6 @@ const AllMessages = () => {
       toast.error(message);
     }
 
-    if (message === 'Message deleted') {
-      window.location.reload(false);
-    }
-
     dispatch(reset());
 
     return () => {

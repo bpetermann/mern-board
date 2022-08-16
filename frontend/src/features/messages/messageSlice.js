@@ -73,6 +73,7 @@ export const messageSlice = createSlice({
       state.message = '';
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(createMessage.pending, (state) => {
@@ -108,7 +109,6 @@ export const messageSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.message = 'Message deleted';
-
       })
       .addCase(deleteMessage.rejected, (state, action) => {
         state.isLoading = false;
