@@ -27,7 +27,3 @@ npm install
 ```bash
 npm run dev
 ```
-
-### Thanks
-
-- [Traversy Media](https://github.com/bradtraversy)
