@@ -1,5 +1,9 @@
 # Mern Board
 
+**This project will no longer be updated and therefore archieved**
+
+## Project Overview
+
 - Just learning MERN by making a small message board
 - You can register to add a message
 - If you're the author you can also delete your message/s
